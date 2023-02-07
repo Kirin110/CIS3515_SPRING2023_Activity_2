@@ -15,13 +15,24 @@ class MainActivity : AppCompatActivity() {
 
         /* Step 1: Populate this array */
         //val numberArray = Array Of Numbers
-
+        val arr = Array(100) { it }
         /* Step 2: Create adapter to display items from array in Spinner */
         //spinner.adapter = ArrayAdapter...
-
+        spinner.adapter = ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, arr)
 
         // Step 3: Change TextView's text size to the number selected in the Spinner */
         //spinner.onItemSelectedListener = object: ...
+        spinner.onItemSelectedListener = object: AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
+                parent?.run{
+                    displayTextView.textSize = getItemAtPosition(position).toString().toFloat()
+                }
+                //displayTextView.textSize = arr[position].toFloat()
+            }
 
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+                TODO("Not yet implemented")
+            }
+        }
     }
 }
