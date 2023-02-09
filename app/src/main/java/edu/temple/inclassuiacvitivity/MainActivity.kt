@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity() {
 
         /* Step 1: Populate this array */
         //val numberArray = Array Of Numbers
-        val arr = Array(100) { it }
+        val arr = Array(50) { (it+1) * 2 }
         /* Step 2: Create adapter to display items from array in Spinner */
         //spinner.adapter = ArrayAdapter...
         spinner.adapter = ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, arr)
@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
                 parent?.run{
                     displayTextView.textSize = getItemAtPosition(position).toString().toFloat()
                 }
-                //displayTextView.textSize = arr[position].toFloat()
+
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
