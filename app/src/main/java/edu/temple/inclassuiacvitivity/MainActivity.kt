@@ -16,9 +16,11 @@ class MainActivity : AppCompatActivity() {
         /* Step 1: Populate this array */
         //val numberArray = Array Of Numbers
         val arr = Array(50) { (it+1) * 2 }
+
         /* Step 2: Create adapter to display items from array in Spinner */
         //spinner.adapter = ArrayAdapter...
-        spinner.adapter = ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, arr)
+        //spinner.adapter = ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, arr)
+        spinner.adapter = TextSizeAdapter(this, arr)
 
         // Step 3: Change TextView's text size to the number selected in the Spinner */
         //spinner.onItemSelectedListener = object: ...
